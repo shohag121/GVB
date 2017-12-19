@@ -14,23 +14,23 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultSingleComponent } from './search-result-single/search-result-single.component';
 import {FormsModule} from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { BookComponent } from './book/book.component';
 
 
 
 // Application Routes
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent},
-  { path: 'book/:id', component: SearchComponent },
+  { path: 'book/:id', component: BookComponent },
   {
     path: 'home',
-    component: HomeComponent,
-    data: { title: 'Heroes List' }
+    component: HomeComponent
   },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  { path: '**', component: SearchComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 
@@ -42,7 +42,8 @@ const appRoutes: Routes = [
     HomeComponent,
     SearchComponent,
     SearchResultComponent,
-    SearchResultSingleComponent
+    SearchResultSingleComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,

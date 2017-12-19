@@ -1,0 +1,56 @@
+<app-navigation></app-navigation>
+
+<section class="container" *ngIf="book">
+  <div class="row py-5">
+    <div class="col-12">
+      <h1 class="text-center">{{book[0].ItemAttributes[0].Title}}</h1>
+      <h3 class="text-center text-muted">By {{book[0].ItemAttributes[0].Author}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of book[0].ImageSets[0].ImageSet">
+          <img class="img-fluid rounded img-thumbnail" src="{{image.LargeImage[0].URL}}" alt="{{index}} image">
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="col-sm-8">
+      <table class="table table-responsive">
+        <thead>
+        <tr>
+          <th scope="col" colspan="2" class="text-center">Book Information</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">Publisher</th>
+          <td>{{book[0].ItemAttributes[0].Publisher}}</td>
+
+        </tr>
+        <tr>
+          <th scope="row">Date Published</th>
+          <td>{{book[0].ItemAttributes[0].PublicationDate}}</td>
+        </tr>
+        <tr>
+          <th scope="row">ISBN-13</th>
+          <td>{{book[0].ItemAttributes[0].EAN}}</td>
+        </tr>
+        <tr>
+          <th scope="row">ISBN-10</th>
+          <td>{{book[0].ItemAttributes[0].ISBN}}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Pages</th>
+          <td>{{book[0].ItemAttributes[0].NumberOfPages}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Editorial Review</th>
+          <td><span [innerHTML]="book[0].EditorialReviews[0].EditorialReview[0].Content"></span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

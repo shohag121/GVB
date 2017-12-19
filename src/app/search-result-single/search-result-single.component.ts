@@ -10,7 +10,7 @@ export class SearchResultSingleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   console.log(this.book);
+    // console.log(this.book);
   }
 
 }
