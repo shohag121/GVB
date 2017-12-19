@@ -1,0 +1,9 @@
+.main-search-section{
+  background: #e5e8e829;
+  width: 100%;
+  height: calc(100vh - 57px);
+}
+
+.logo-text{
+  text-align: center;
+}
