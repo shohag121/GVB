@@ -1,15 +1,35 @@
 <p>
   <button class="btn btn-info" type="button" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed"  aria-controls="shareByEmail">Share by Email</button>
+  <button class="btn btn-info" type="button" (click)="isCollapsed1 = !isCollapsed1"
+          [attr.aria-expanded]="!isCollapsed1"  aria-controls="shareBySMS">Share by SMS</button>
 </p>
+
 <div id="shareByEmail" [ngbCollapse]="!isCollapsed">
-  <div class="card card-body">
+  <ngb-alert *ngIf="emailsent" [type]="success" (close)="emailcloseAlert()">Email Sent.</ngb-alert>
+  <div *ngIf="!emailsent" class="card card-body">
     <div class="form-row">
       <div class="col">
         <div class="input-group">
           <input type="email" [(ngModel)]="emailId" class="form-control" placeholder="Friend's Email" aria-label="Friend's Email">
           <span class="input-group-btn">
             <button (click)="sendEmail()" class="btn btn-dark">SEND</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="shareBySMS" [ngbCollapse]="!isCollapsed1">
+  <ngb-alert *ngIf="smssent" [type]="success" (close)="smscloseAlert()">SMS Sent.</ngb-alert>
+  <div *ngIf="!smssent" class="card card-body">
+    <div class="form-row">
+      <div class="col">
+        <div class="input-group">
+          <input type="text" [(ngModel)]="phone" class="form-control" placeholder="Friend's Mobile Number" aria-label="Friend's Mobile Number">
+          <span class="input-group-btn">
+            <button (click)="sendSMS()" class="btn btn-dark">SEND</button>
           </span>
         </div>
       </div>

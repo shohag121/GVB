@@ -18,6 +18,7 @@ import { BookComponent } from './book/book.component';
 import {HttpClientModule} from '@angular/common/http';
 import {EmailService} from './email.service';
 import { ShareComponent } from './share/share.component';
+import {SmsService} from './sms.service';
 
 
 // Application Routes
@@ -61,7 +62,10 @@ const appRoutes: Routes = [
     Ng4LoadingSpinnerModule.forRoot(),
     HttpClientModule
   ],
-  providers: [EmailService],
+  providers: [
+    EmailService,
+    SmsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
