@@ -9,12 +9,14 @@ export class SmsService {
   sendSMS( phone: string, msg: string) {
     const body: any = {
       'api_key': 'C20007125a3a8f7d7201a4.67228368',
-      'type': 'unicode',
+      'type': 'text',
       'contacts': phone,
       'senderid': '8804445629106',
       'msg': msg
     };
-     return this.http.post('http://esms.dianahost.com/smsapi', body);
+     return this.http.post('http://esms.dianahost.com/smsapi', body, {
+       responseType: 'text'
+     });
   }
 
 

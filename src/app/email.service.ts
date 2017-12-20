@@ -10,7 +10,7 @@ export class EmailService {
   sendEmail( email: string, msg: string) {
     const body = new HttpParams()
       .set('to', email)
-      .set('from', 'noreplay@gvb.coderexpo.com')
+      .set('from', 'no-replay@gvb.coderexpo.com')
       .set('subject', 'GVB Book Suggestion')
       .set('text', msg);
 

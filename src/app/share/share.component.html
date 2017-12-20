@@ -6,7 +6,7 @@
 </p>
 
 <div id="shareByEmail" [ngbCollapse]="!isCollapsed">
-  <ngb-alert *ngIf="emailsent" [type]="success" (close)="emailcloseAlert()">Email Sent.</ngb-alert>
+  <ngb-alert *ngIf="emailsent" [type]="type" (close)="emailcloseAlert()">{{message}}</ngb-alert>
   <div *ngIf="!emailsent" class="card card-body">
     <div class="form-row">
       <div class="col">
@@ -22,7 +22,7 @@
 </div>
 
 <div id="shareBySMS" [ngbCollapse]="!isCollapsed1">
-  <ngb-alert *ngIf="smssent" [type]="success" (close)="smscloseAlert()">SMS Sent.</ngb-alert>
+  <ngb-alert *ngIf="smssent" [type]="type" (close)="smscloseAlert()">{{message}}</ngb-alert>
   <div *ngIf="!smssent" class="card card-body">
     <div class="form-row">
       <div class="col">
