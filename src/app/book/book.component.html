@@ -16,25 +16,7 @@
       </ngb-carousel>
     </div>
     <div class="col-sm-8">
-      <p>
-        <button class="btn btn-info" type="button" (click)="isCollapsed = !isCollapsed"
-                [attr.aria-expanded]="!isCollapsed"  aria-controls="shareByEmail">Share by Email</button>
-      </p>
-      <div id="shareByEmail" [ngbCollapse]="!isCollapsed">
-        <div class="card card-body">
-          <div class="form-row">
-            <div class="col">
-              <div class="input-group">
-                <input type="email" [(ngModel)]="emailId" class="form-control" placeholder="Friend's Email" aria-label="Friend's Email">
-                <span class="input-group-btn">
-                  <button class="btn btn-dark">SEND</button>
-
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-share></app-share>
       <table class="table table-responsive">
         <thead>
         <tr>

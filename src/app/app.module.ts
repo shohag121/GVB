@@ -15,7 +15,9 @@ import { SearchResultSingleComponent } from './search-result-single/search-resul
 import {FormsModule} from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { BookComponent } from './book/book.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import {EmailService} from './email.service';
+import { ShareComponent } from './share/share.component';
 
 
 // Application Routes
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     SearchComponent,
     SearchResultComponent,
     SearchResultSingleComponent,
-    BookComponent
+    BookComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +59,9 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     FormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
