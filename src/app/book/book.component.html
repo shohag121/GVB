@@ -8,14 +8,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-md-4 pb-4 pb-md-0">
       <ngb-carousel>
         <ng-template ngbSlide *ngFor="let image of book[0].ImageSets[0].ImageSet">
-          <img class="img-fluid rounded img-thumbnail" src="{{image.LargeImage[0].URL}}" alt="{{index}} image">
+          <img class="img-fluid rounded img-thumbnail mw-100" src="{{image.LargeImage[0].URL}}" alt="{{index}} image">
         </ng-template>
       </ngb-carousel>
     </div>
-    <div class="col-sm-8">
+    <div class="col-md-8">
       <app-share></app-share>
       <table class="table table-responsive">
         <thead>

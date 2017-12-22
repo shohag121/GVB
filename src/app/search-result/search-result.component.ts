@@ -12,8 +12,8 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 })
 export class SearchResultComponent implements OnInit {
   private client: any = amazon.createClient(environment.aws);
-  private q: string;
-  private books: Array<Object>;
+  public q: string;
+  public books: any[];
   constructor(private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
@@ -22,24 +22,23 @@ export class SearchResultComponent implements OnInit {
       .filter(params => params.q)
       .subscribe(params => {
         this.q = params.q;
+        // Initiate spinner
+        this.spinnerService.show();
+        // Query to amazon
+        this.client.itemSearch({
+          keywords: this.q,
+          searchIndex: 'Books',
+          responseGroup: 'ItemAttributes,Images,EditorialReview'
+        }).then((results) => {
+          // console.log(results);
+          this.books = results;
+          // console.log(this.books);
+          this.spinnerService.hide();
+        }).catch((err) => {
+          console.log(err);
+          this.spinnerService.hide();
+        });
       });
-
-    // Initiate spinner
-    this.spinnerService.show();
-    // Query to amazon
-    this.client.itemSearch({
-      keywords: this.q,
-      searchIndex: 'Books',
-      responseGroup: 'ItemAttributes,Images,EditorialReview'
-    }).then((results) => {
-      // console.log(results);
-      this.books = results;
-       // console.log(this.books);
-      this.spinnerService.hide();
-    }).catch((err) => {
-      console.log(err);
-      this.spinnerService.hide();
-    });
 
   }
 

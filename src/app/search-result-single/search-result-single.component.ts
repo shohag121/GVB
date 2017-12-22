@@ -6,11 +6,13 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./search-result-single.component.css']
 })
 export class SearchResultSingleComponent implements OnInit {
-  @Input() book: Object;
+  @Input() book: any;
+  public bookeditorial: string;
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.book);
+   this.bookeditorial = this.book.EditorialReviews[0].EditorialReview[0].Content[0];
+   this.bookeditorial = this.bookeditorial.replace(/<(?:.|\n)*?>/gm, '');
   }
 
 }

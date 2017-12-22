@@ -1,3 +1,28 @@
-.card-overlay-dark{
-  background-color: #000000b3;
+.maxy{
+  min-width: 100%;
 }
+
+.card-footer{
+  background: none;
+}
+.card{
+  box-shadow: 0 0 5px 0 #8e8e8e;
+  border: none;
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .maxy{
+    min-height: 200px;
+    max-height: 200px;
+  }
+}
+
+/*  Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .maxy{
+    min-height: 287px;
+    max-height: 287px;
+  }
+}
+

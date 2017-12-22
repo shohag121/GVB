@@ -10,14 +10,14 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   styleUrls: ['./share.component.css']
 })
 export class ShareComponent implements OnInit {
-  private isCollapsed: any;
-  private isCollapsed1: any;
-  private emailId: string;
-  private phone: string;
-  private emailsent = false;
-  private smssent = false;
-  private message: string;
-  private type: string;
+  public isCollapsed: any;
+  public isCollapsed1: any;
+  public emailId: string;
+  public phone: string;
+  public emailsent = false;
+  public smssent = false;
+  public message: string;
+  public type: string;
   private text = `You are invited to check this book.\nhttps://gvb.coderexpo.com${this.router.url}\nGVB`;
 
   constructor(

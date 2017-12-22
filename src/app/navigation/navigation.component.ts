@@ -8,7 +8,7 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  private searchquary: string;
+  public searchquary: string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

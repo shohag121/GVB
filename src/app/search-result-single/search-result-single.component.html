@@ -1,18 +1,18 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-      <div class="col-sm-5">
-        <img src="{{book.LargeImage[0].URL[0]}}" class="img-fluid rounded" alt="{{book.ItemAttributes[0].Title[0]}}">
+      <div class="col-md-5">
+        <img src="{{book.LargeImage[0].URL[0]}}" class="img-fluid rounded maxy pb-4 pb-md-0" alt="{{book.ItemAttributes[0].Title[0]}}">
       </div>
-      <div class="col-sm-7">
-        <h4 class="card-title">{{book.ItemAttributes[0].Title[0]}}</h4>
+      <div class="col-md-7">
+        <h5 class="card-title">{{book.ItemAttributes[0].Title[0]}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">By {{book.ItemAttributes[0].Author}}</h6>
-        <p class="card-text" [innerHTML]="book.EditorialReviews[0].EditorialReview[0].Content[0] | slice:0:200"></p>
+        <p class="card-text">{{bookeditorial | slice:0:200}} ...</p>
       </div>
     </div>
   </div>
   <div class="card-footer">
     <a routerLink="/book/{{book.ItemAttributes[0].ISBN}}" class="btn btn-outline-info">Details</a>
-    <p class="float-right text-muted"><span class="text-primary" *ngIf="book.ItemAttributes[0].NumberOfPages">Total Pages: {{book.ItemAttributes[0].NumberOfPages}}</span>. <span class="text-danger font-weight-bold" *ngIf="book.ItemAttributes[0].ListPrice">List Price: {{book.ItemAttributes[0].ListPrice[0].FormattedPrice[0]}}</span></p>
+    <p class="float-right text-muted pt-2"><span class="text-info" *ngIf="book.ItemAttributes[0].NumberOfPages">Total Pages: {{book.ItemAttributes[0].NumberOfPages}}</span>. <span class="text-warning" *ngIf="book.ItemAttributes[0].ListPrice">List Price: {{book.ItemAttributes[0].ListPrice[0].FormattedPrice[0]}}</span></p>
   </div>
 </div>

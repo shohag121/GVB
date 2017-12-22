@@ -12,7 +12,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 export class BookComponent implements OnInit {
   private bookID: string;
-  private book;
+  public book;
   private client: any = amazon.createClient(environment.aws);
   constructor(private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) {
     this.spinnerService.show();
