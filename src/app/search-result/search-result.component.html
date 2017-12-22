@@ -1,22 +1,5 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 my-3">
-      <h2 class="text-center">Search Results</h2>
-    </div>
-  </div>
-
-
+<div class="container search-result">
   <div class="row">
     <app-search-result-single *ngFor="let book of books" [book]="book" class="col-md-6 search-result-single mb-5"></app-search-result-single>
   </div>
-
-
-
-
-
-
-
-
-
-
 </div><!-- ./container-->
