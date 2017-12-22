@@ -10,7 +10,7 @@ export const environment = {
     authDomain: 'getvirtualbooks.firebaseapp.com',
     databaseURL: 'https://getvirtualbooks.firebaseio.com',
     projectId: 'getvirtualbooks',
-    storageBucket: '',
+    storageBucket: 'getvirtualbooks.appspot.com',
     messagingSenderId: '342334744149'
   },
   aws: {

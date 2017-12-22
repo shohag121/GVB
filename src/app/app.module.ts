@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
@@ -19,11 +17,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {EmailService} from './email.service';
 import { ShareComponent } from './share/share.component';
 import {SmsService} from './sms.service';
+import {CoreModule} from './core/core.module';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 
 // Application Routes
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent},
+  { path: 'my-account', component: MyAccountComponent},
   { path: 'book/:id', component: BookComponent },
   {
     path: 'home',
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     SearchResultComponent,
     SearchResultSingleComponent,
     BookComponent,
-    ShareComponent
+    ShareComponent,
+    MyAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -56,11 +58,10 @@ const appRoutes: Routes = [
     ),
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
     FormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    CoreModule
   ],
   providers: [
     EmailService,
