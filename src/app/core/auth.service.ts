@@ -35,8 +35,8 @@ export class AuthService {
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        this.updateUserData(credential.user)
-      })
+        this.updateUserData(credential.user);
+      });
   }
   private updateUserData(user) {
     // Sets user data to firestore on login
@@ -47,7 +47,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL
     }
-    return userRef.set(data)
+    return userRef.set(data);
   }
   signOut() {
     this.afAuth.auth.signOut().then(() => {

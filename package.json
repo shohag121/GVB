@@ -2,6 +2,7 @@
   "name": "gvb",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "main.js",
   "scripts": {
     "postinstall": "node fixAngularCrypto.js",
     "ng": "ng",
@@ -9,7 +10,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron .",
+    "electron-build": "ng build --prod && electron ."
   },
   "private": true,
   "dependencies": {
@@ -29,6 +32,7 @@
     "core-js": "^2.4.1",
     "firebase": "^4.7.0",
     "ng4-loading-spinner": "^1.1.1",
+    "request": "^2.83.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
@@ -45,6 +49,8 @@
     "copy-webpack-plugin": "^4.1.1",
     "css-loader": "^0.28.1",
     "cssnano": "^3.10.0",
+    "electron": "^1.7.10",
+    "electron-packager": "^10.1.0",
     "exports-loader": "^0.6.3",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.29.0",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import amazon from 'amazon-product-api';
+import * as amazon from 'amazon-product-api';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
