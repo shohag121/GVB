@@ -1,0 +1,14 @@
+.height-fix {
+  height: 100vh !important;
+  width: 100%;
+}
+
+.card-shadow{
+  border: none;
+  box-shadow: 0 0 5px 0 #8e8e8e;
+}
+.card-shadow:hover{
+  box-shadow: 0 2px 9px 0 #8e8e8e;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}

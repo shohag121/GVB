@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import {EmailService} from '../email.service';
 import {SmsService} from '../sms.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import {AuthService} from '../core/auth.service';
 
 @Component({
   selector: 'app-share',
@@ -18,16 +19,19 @@ export class ShareComponent implements OnInit {
   public smssent = false;
   public message: string;
   public type: string;
+  public bookinfo: any;
   private text = `You are invited to check this book.\nhttps://gvb.coderexpo.com${this.router.url}\nGVB`;
-
+  @Input() book: any;
   constructor(
     private email: EmailService,
     private sms: SmsService,
     private spinnerService: Ng4LoadingSpinnerService,
-    private router: Router
+    private router: Router,
+    public auth: AuthService
   ) {}
 
   ngOnInit() {
+    this.bookinfo = this.book;
   }
   sendEmail() {
     this.spinnerService.show();

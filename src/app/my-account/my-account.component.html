@@ -4,20 +4,46 @@
 </div>
 <!-- User NOT logged in -->
 <ng-template #guest>
-  <h3>Howdy, GUEST</h3>
-  <p>Login to get started...</p>
+  <div class="container h-100 height-fix">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-8 col-sm-6 col-md-4 col-lg-3">
+        <h1 class="text-center mb-5 font-weight-bold">Login</h1>
+          <button (click)="auth.googleLogin()" class="btn btn-block btn-warning">Connect with Google</button>
+      </div>
+    </div>
+  </div>
 
-  <button (click)="auth.googleLogin()">
-    <i class="fa fa-google"></i> Connect Google
-  </button>
 </ng-template>
 <!-- User logged in -->
 <ng-template #authenticated>
-  <div *ngIf="auth.user | async as user">
-    <h3>Howdy, {{ user.displayName }}</h3>
-    <img  [src]="user.photoURL">
-    <p>UID: {{ user.uid }}</p>
-    <p>Favorite Color: {{ user?.books }} </p>
-    <button (click)="auth.signOut()">Logout</button>
+  <div *ngIf="auth.user | async as user" class="container my-5 pt-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card mb-3 card-shadow">
+          <img class="card-img-top" [src]="user.photoURL" alt="{{ user.displayName }}">
+          <div class="card-body">
+            <h5 class="card-title">Howdy,</h5>
+            <h6 class="card-subtitle">{{ user.displayName }}</h6>
+            <p class="card-text">Email: {{ user.email }}</p>
+            <button class="btn btn-danger" (click)="auth.signOut()">Logout</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9" *ngIf="books; else noBooks">
+        <div class="card mb-2 card-shadow" *ngFor="let book of books">
+          <div class="card-body">
+            <h5 class="card-title">{{book.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">By {{book.author}}</h6>
+            <a class="btn btn-success" routerLink="/book/{{book.id}}">Book Details</a>
+            <a class="btn btn-danger text-light" (click)="auth.removeCollection(book.id)">Remove From Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #noBooks>
+  <div class="col-md-9">
+    <h3 class="text-center my-5 text-warning">No book in your collection yet. </h3>
   </div>
 </ng-template>

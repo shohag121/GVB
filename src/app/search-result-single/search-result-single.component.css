@@ -9,6 +9,11 @@
   box-shadow: 0 0 5px 0 #8e8e8e;
   border: none;
 }
+.card:hover{
+  box-shadow: 0 2px 9px 0 #8e8e8e;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
 
 /*  Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {

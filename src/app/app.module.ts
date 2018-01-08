@@ -19,6 +19,8 @@ import { ShareComponent } from './share/share.component';
 import {SmsService} from './sms.service';
 import {CoreModule} from './core/core.module';
 import { MyAccountComponent } from './my-account/my-account.component';
+import {AmazonService} from './amazon.service';
+import {InterseptorModule} from './interseptor/interseptor.module';
 
 
 // Application Routes
@@ -57,7 +59,7 @@ const appRoutes: Routes = [
       appRoutes
     ),
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'getvirtualbooks'),
     FormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
     HttpClientModule,
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     EmailService,
-    SmsService
+    SmsService,
+    AmazonService
   ],
   bootstrap: [AppComponent]
 })

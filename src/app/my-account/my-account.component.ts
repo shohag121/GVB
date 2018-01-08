@@ -7,10 +7,19 @@ import {AuthService} from '../core/auth.service';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-
-  constructor( public auth: AuthService) { }
+  books: any;
+  constructor( public auth: AuthService) {}
 
   ngOnInit() {
+    this.auth.getData().subscribe(data => {
+      data.subscribe(books => {
+       if (books.length > 0) {
+         this.books = books;
+       } else {
+         this.books = null;
+       }
+      });
+    });
   }
 
 }

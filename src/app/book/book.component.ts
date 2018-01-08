@@ -3,6 +3,8 @@ import amazon from 'amazon-product-api';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import {AmazonService} from '../amazon.service';
+
 
 @Component({
   selector: 'app-book',
@@ -14,8 +16,8 @@ export class BookComponent implements OnInit {
   private bookID: string;
   public book;
   private client: any = amazon.createClient(environment.aws);
-  constructor(private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) {
-    this.spinnerService.show();
+  constructor( public ams: AmazonService, private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) {
+     this.spinnerService.show();
   }
 
   ngOnInit() {
