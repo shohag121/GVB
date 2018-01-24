@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import amazon from 'amazon-product-api';
-import { environment } from '../../environments/environment';
+import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import {AmazonService} from '../amazon.service';
@@ -15,26 +13,18 @@ import {AmazonService} from '../amazon.service';
 export class BookComponent implements OnInit {
   private bookID: string;
   public book;
-  private client: any = amazon.createClient(environment.aws);
-  constructor( public ams: AmazonService, private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) {
+
+  constructor( public ams: AmazonService, public route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService) {
      this.spinnerService.show();
   }
 
   ngOnInit() {
     this.bookID = this.route.snapshot.paramMap.get('id');
-    this.client.itemLookup({
-      idType: 'ISBN',
-      itemId: this.bookID,
-      responseGroup: 'ItemAttributes,Images,EditorialReview'
-    }).then((results) => {
-      console.log(results);
-      this.book = results;
-      this.spinnerService.hide();
-    }).catch((err) => {
-      console.log(err);
+    this.ams.bookDetails(this.bookID).subscribe(res => {
+       console.log(res);
+      this.book = res;
       this.spinnerService.hide();
     });
-
 
   }
 

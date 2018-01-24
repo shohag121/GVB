@@ -3,8 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class SmsService {
-
-
   constructor(private http: HttpClient) { }
   sendSMS( phone: string, msg: string) {
     const body: any = {
@@ -18,6 +16,4 @@ export class SmsService {
        responseType: 'text'
      });
   }
-
-
 }

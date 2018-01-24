@@ -11,8 +11,14 @@ export class SearchResultSingleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   this.bookeditorial = this.book.EditorialReviews[0].EditorialReview[0].Content[0];
-   this.bookeditorial = this.bookeditorial.replace(/<(?:.|\n)*?>/gm, '');
+   // console.log(this.book);
+    if (this.book.EditorialReviews.EditorialReview.Content) {
+      this.bookeditorial = this.book.EditorialReviews.EditorialReview.Content;
+
+    } else {
+      this.bookeditorial = '';
+    }
+    this.bookeditorial = this.bookeditorial.replace(/<(?:.|\n)*?>/gm, '');
   }
 
 }

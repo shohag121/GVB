@@ -20,7 +20,7 @@ export class ShareComponent implements OnInit {
   public message: string;
   public type: string;
   public bookinfo: any;
-  private text = `You are invited to check this book.\nhttps://gvb.coderexpo.com${this.router.url}\nGVB`;
+  private text = `You are invited to check this book.\nhttps://gvb.fun${this.router.url}\nGVB`;
   @Input() book: any;
   constructor(
     private email: EmailService,

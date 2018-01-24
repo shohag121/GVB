@@ -3,20 +3,16 @@
 <section class="container mt-5 pt-5" *ngIf="book">
   <div class="row">
     <div class="col-12">
-      <h1 class="text-center">{{book[0].ItemAttributes[0].Title}}</h1>
-      <h3 class="text-center text-muted">By {{book[0].ItemAttributes[0].Author}}</h3>
+      <h1 class="text-center">{{book.Items.Item.ItemAttributes.Title}}</h1>
+      <h3 class="text-center text-muted">By {{book.Items.Item.ItemAttributes.Author}}</h3>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4 pb-4 pb-md-0">
-      <ngb-carousel>
-        <ng-template ngbSlide *ngFor="let image of book[0].ImageSets[0].ImageSet">
-          <img class="img-fluid rounded img-thumbnail mw-100" src="{{image.LargeImage[0].URL}}" alt="{{index}} image">
-        </ng-template>
-      </ngb-carousel>
+      <img class="img-fluid rounded img-thumbnail mw-100" src="{{book.Items.Item.LargeImage.URL}}" alt="Book">
     </div>
     <div class="col-md-8">
-      <app-share [book]="book[0]"></app-share>
+      <app-share [book]="book.Items.Item"></app-share>
       <table class="table table-responsive">
         <thead>
         <tr>
@@ -26,29 +22,29 @@
         <tbody>
         <tr>
           <th scope="row">Publisher</th>
-          <td>{{book[0].ItemAttributes[0].Publisher}}</td>
+          <td>{{book.Items.Item.ItemAttributes.Publisher}}</td>
 
         </tr>
         <tr>
           <th scope="row">Date Published</th>
-          <td>{{book[0].ItemAttributes[0].PublicationDate}}</td>
+          <td>{{book.Items.Item.ItemAttributes.PublicationDate}}</td>
         </tr>
         <tr>
           <th scope="row">ISBN-13</th>
-          <td>{{book[0].ItemAttributes[0].EAN}}</td>
+          <td>{{book.Items.Item.ItemAttributes.EAN}}</td>
         </tr>
         <tr>
           <th scope="row">ISBN-10</th>
-          <td>{{book[0].ItemAttributes[0].ISBN}}</td>
+          <td>{{book.Items.Item.ItemAttributes.ISBN}}</td>
         </tr>
 
         <tr>
           <th scope="row">Pages</th>
-          <td>{{book[0].ItemAttributes[0].NumberOfPages}}</td>
+          <td>{{book.Items.Item.ItemAttributes.NumberOfPages}}</td>
         </tr>
         <tr>
           <th scope="row">Editorial Review</th>
-          <td><span [innerHTML]="book[0].EditorialReviews[0].EditorialReview[0].Content"></span></td>
+          <td><span [innerHTML]="book.Items.Item.EditorialReviews.EditorialReview.Content"></span></td>
         </tr>
         </tbody>
       </table>

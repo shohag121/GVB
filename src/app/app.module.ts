@@ -13,7 +13,7 @@ import { SearchResultSingleComponent } from './search-result-single/search-resul
 import {FormsModule} from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { BookComponent } from './book/book.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
 import {EmailService} from './email.service';
 import { ShareComponent } from './share/share.component';
 import {SmsService} from './sms.service';
@@ -63,6 +63,7 @@ const appRoutes: Routes = [
     FormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
     HttpClientModule,
+    HttpClientJsonpModule,
     CoreModule
   ],
   providers: [

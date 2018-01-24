@@ -59,6 +59,7 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
   private oAuthLogin(provider) {
+    // signInWithPopup
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
         this.updateUserData(credential.user);

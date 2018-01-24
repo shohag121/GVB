@@ -45,10 +45,10 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest>
-  <a href="{{bookinfo.DetailPageURL}}"  class="btn btn-warning">Buy Book From Amazon</a>
+  <a href="{{bookinfo.DetailPageURL}}" target="_blank"  class="btn btn-warning">Buy Book From Amazon</a>
 </ng-template>
 
-<!-- User NOT logged in -->
+<!-- User logged in -->
 <ng-template #authenticated>
-  <button *ngIf="auth.user | async as user" (click)="auth.updateCollection( bookinfo.ItemAttributes[0].ISBN, bookinfo.ItemAttributes[0].Title, bookinfo.ItemAttributes[0].Author )" class="btn btn-success" type="button">Add To Collection</button>
+  <button *ngIf="auth.user | async as user" (click)="auth.updateCollection( bookinfo.ItemAttributes.ISBN, bookinfo.ItemAttributes.Title, bookinfo.ItemAttributes.Author )" class="btn btn-success" type="button">Add To Collection</button>
 </ng-template>

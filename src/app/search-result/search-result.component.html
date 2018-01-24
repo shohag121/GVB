@@ -1,5 +1,5 @@
 <div class="container search-result">
-  <div class="row">
-    <app-search-result-single *ngFor="let book of books" [book]="book" class="col-md-6 search-result-single mb-5"></app-search-result-single>
+  <div class="row" *ngIf="books">
+    <app-search-result-single *ngFor="let book of books.Items.Item" [book]="book" class="col-md-6 search-result-single mb-5"></app-search-result-single>
   </div>
 </div><!-- ./container-->
